@@ -1,0 +1,37 @@
+<h1>Cadastro de Contas</h1>
+
+<form #customerForm (submit)="save(customerForm)">
+
+  <div>
+    <label for="product">Produto:</label>
+    <input type="text" name="product" id="product" #product [(ngModel)]="newBill.product">
+  </div>
+
+  <div>
+    <label for="amount">Valor:</label>
+    <input type="text" name="amount" id="amount" #amount [(ngModel)]="newBill.amount">
+  </div>
+  <div>
+
+    <label for="paymentMethod">Método De Pagamento:</label>
+    <input type="text" name="paymentMethod" id="paymentMethod" #paymentMethod [(ngModel)]="newBill.paymentMethod">
+  </div>
+
+  <div>
+    <label for="customer">Cliente:</label>
+    <input type="text" name="customer" id="customer" #customer [(ngModel)]="newBill.customer">
+  </div>
+
+  <input type="submit" value="Salvar">
+
+</form>
+
+<h2>Bills</h2>
+
+<ul>
+  <li *ngFor="let b of Bills">
+    {{ b.amount }} - {{ b.product }} - {{ b.paymentMethod }} - {{b.customer}}
+    <input type="button" value="Remover" (click)="deleteBill(b.id)">
+  </li>
+</ul>
+
